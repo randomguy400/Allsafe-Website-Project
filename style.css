@@ -1,0 +1,92 @@
+* {
+    font-family: "Martian Mono";
+}
+
+nav {
+    overflow: hidden;
+    list-style-type: none;
+    position: sticky;
+    /* margin: 0;
+    padding: 0; */
+    background-color: #09578d;
+}
+
+li {
+    float: left;
+    display: block;
+    text-align: justify;
+    padding: 14px 30px;
+    text-decoration: none;
+}
+
+li a {
+    display: block;
+    padding: 10px;
+    color: #fff;
+    text-align: justify;
+}
+
+li a:hover {
+    background-color: rgb(255, 255, 255);
+    color: #09578d;
+}
+
+.logo-header {
+    float: left;
+    padding: 14px
+}
+
+.navbar-button {
+    text-align: center;
+    font-size: 25px;
+    letter-spacing: 1.5px;
+}
+
+.slides {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.subtitle {
+    top: 80%;
+    left: 50%;
+}
+
+.we-protect, .protection-examples {
+    position: absolute;
+}
+
+.we-protect {
+    left: 0;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3vw;
+    display: inline-block;
+}
+
+.title-background {
+    background-color:#fff ;
+    width: 200px;
+    height: 100px;
+    border: 1px solid rgb(255, 255, 255);
+    padding: 10px;
+    margin: 10px;
+  }
+
+.protection-examples {
+    left: 0;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2.5vw;
+    margin: auto;
+    display: inline-block;
+}
+
+.main-container {
+    position: relative;
+    text-align: center;
+    color: white;
+}
