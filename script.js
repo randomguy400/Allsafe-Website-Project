@@ -1,43 +1,65 @@
-/*Auto-changing images */
+/* Auto-changing images */
+
+var img = document.getElementsByClassName("slides")[0];
+const directory = "./img/landing-images/"
+const images = [
+  [
+    "1.jpg", 
+    "Mr Robot sitting at a computer desk with an Allsafe Cybersecurity desktop background, with his back to the computer screens and Elliot, who is staring at him"
+  ],
+  [
+    "2.jpg",
+    "Ollie Parker sitting at a computer desk at Allsafe Cybersecurity, with an ejected disk in the disk reader of the computer"
+  ],
+  [
+    "3.jpg",
+    "The office environment at Allsafe Cybersecurity, Elliot stands waiting"
+  ],
+  [
+    "4.jpg",
+    "Scott Knowles looks on in horror, as the people on New York watch him burn 5.9 million dollars"
+  ]
+]
 
 let index = 0;
-carousel();
+setTimeout(carousel, 20000);
 
 function carousel() {
-  let i;
-  let x = document.getElementsByClassName("slides");
-  for (i = 0; i < x.length; i++) x[i].style.display = "none";
-  index++;
-  if (index > x.length) index = 1;
-  x[index-1].style.display = "block";
-  setTimeout(carousel, 20000);
+  index = (index + 1) % images.length
+  img.src = directory + images[index][0]
+  img.alt = images[index][1]
+  setTimeout(carousel, 20000)
 }
 
+/* */
 
-/*Auto-changing protection examples */
+/* Auto-changing protection examples */
 
 let protection_examples = ["energy companies", "e-corp", "conglomerates", "banks", "corporations", "consumer finance", "healthcare"]
   .map(value => ({ value, sort: Math.random() }))
   .sort((a, b) => a.sort - b.sort)
-  .map(({ value }) => value);
+  .map(({ value }) => value)
+  .map(item => item + " ");
+
+  console.log(protection_examples)
 
 const speed = 50;
 let i = 0
 let typing = true
 let next_word = 0
-let wait = 5500
+let wait = 10000
 
 function typeWriter() {
   console.log("run function")
   if (i <= protection_examples[next_word].length && typing) {
     document.getElementById("protection-examples").innerHTML += protection_examples[next_word].charAt(i);
-    console.log(document.getElementById("protection-examples").innerHTML)
+/*     console.log(document.getElementById("protection-examples").innerHTML)
     console.log(i)
     console.log(protection_examples[next_word].length)
     console.log(typing)
-    console.log("Next word:" + next_word)
+    console.log("Next word:" + next_word) */
     i++;
-    console.log("i: " + i)
+    // console.log("i: " + i)
     if (protection_examples[next_word].length < i) {
       typing = false
       setTimeout(typeWriter, (wait + (protection_examples[next_word].length > 5 ? (protection_examples[next_word].length * 50) : 1)))
@@ -47,17 +69,17 @@ function typeWriter() {
 
   else if ((i > 1/* || i > protection_examples[next_word].length*/) && typing === false) {
     document.getElementById("protection-examples").innerHTML = document.getElementById("protection-examples").innerHTML.slice(0, -1)
-    console.log(document.getElementById("protection-examples").innerHTML)
+/*     console.log(document.getElementById("protection-examples").innerHTML)
     console.log(i)
     console.log(protection_examples[next_word].length)
     console.log(typing)
-    console.log("Next word:" + next_word)
+    console.log("Next word:" + next_word) */
     i--;
-    console.log("i: " + i)
-    // if (i == 0) {
-    //   typing = true
-    //   next_word != protection_examples.length + 1 ? next_word += 1 : next_word = 0
-    // };
+/*     console.log("i: " + i)
+    if (i == 0) {
+      typing = true
+      next_word != protection_examples.length + 1 ? next_word += 1 : next_word = 0
+    }; */
     setTimeout(typeWriter, speed);
   }
 
@@ -70,3 +92,27 @@ function typeWriter() {
 }
 
 setInterval(typeWriter(), 8000);
+
+/* */
+
+/* Adjust content margin, to allow for navbar resizing */
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Get the navbar element
+  const navbar = document.getElementById("navbar")
+
+  // Get the content element
+  const content = document.querySelector('.main-content');
+
+
+  function adjust() {
+    /* Adjust the padding-top based on the navbar's height */
+    const navbarHeight = navbar.offsetHeight;
+    content.style.paddingTop = navbarHeight + 'px';
+  }
+
+  // Call the adjust function when the page loads and on window resize
+  window.addEventListener('load', adjust);
+  window.addEventListener('resize', adjust);
+})
+/* */
