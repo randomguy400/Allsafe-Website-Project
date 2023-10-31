@@ -1,6 +1,6 @@
 /* Auto-changing images */
 
-var img = document.getElementsByClassName("slides")[0];
+const imgdiv = document.getElementsByClassName("landing-images")[0];
 const directory = "./img/landing-images/"
 const images = [
   [
@@ -18,6 +18,10 @@ const images = [
   [
     "4.jpg",
     "Scott Knowles looks on in horror, as the people on New York watch him burn 5.9 million dollars"
+  ],
+  [
+    "5.jpg",
+    "Gideon Goddard, the CEO of Allsafe, at a table with Terry Colby, Philip Price (the CEO of E-Corp) and Tyrell Wellick"
   ]
 ]
 
@@ -26,8 +30,8 @@ setTimeout(carousel, 20000);
 
 function carousel() {
   index = (index + 1) % images.length
-  img.src = directory + images[index][0]
-  img.alt = images[index][1]
+  imgdiv.style = `background: url(${directory + images[index][0]}) center/cover no-repeat;`
+  imgdiv.title = images[index][1]
   setTimeout(carousel, 20000)
 }
 
@@ -108,7 +112,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function adjust() {
     /* Adjust the padding-top based on the navbar's height */
     const navbarHeight = navbar.offsetHeight;
-    content.style.paddingTop = navbarHeight + 'px';
+    content.style.marginTop = navbarHeight + 'px';
   }
 
   // Call the adjust function when the page loads and on window resize
