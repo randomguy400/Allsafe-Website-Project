@@ -106,8 +106,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const navbar = document.getElementById("navbar")
 
   // Get the content element
-  const content = document.querySelector('.main-content');
-
+  const content = document.getElementsByClassName('main-content')[0];
 
   function adjust() {
     /* Adjust the padding-top based on the navbar's height */
