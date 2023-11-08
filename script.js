@@ -1,6 +1,9 @@
 /* Auto-changing images */
 
-const imgdiv = document.getElementsByClassName("landing-images")[0];
+const landing_images = document.getElementsByClassName("landing-images")
+const loadimage = landing_images[0];
+const loadedimage = landing_images[1];
+const loadingbar = document.getElementsByClassName("image-load-progress-animation")[0]
 const directory = "./img/landing-images/"
 const images = [
   [
@@ -25,14 +28,27 @@ const images = [
   ]
 ]
 
-let index = 0;
-setTimeout(carousel, 20000);
+let index = -1;
+/* setTimeout(carousel, 20000); */
+carousel();
 
 function carousel() {
   index = (index + 1) % images.length
-  imgdiv.style = `background: url(${directory + images[index][0]}) center/cover no-repeat;`
-  imgdiv.title = images[index][1]
-  setTimeout(carousel, 20000)
+  loadingbar.classList.remove('image-load-progress-animation');
+  void loadingbar.offsetWidth;
+  loadingbar.classList.add('image-load-progress-animation');
+  loadimage.style.display = ""
+  loadingbar.style.display = ""
+  loadedimage.style = `background: url(${directory + images[index][0]}) center/cover no-repeat; display:none;`
+  loadedimage.title = images[index][1]
+  setTimeout(loadnewimage, 2000)
+}
+
+function loadnewimage() {
+  loadedimage.style.display = ""
+  loadimage.style = `background: url(${directory + images[(index + 1) % images.length][0]}) center/cover no-repeat;`
+  loadimage.style.display = "none"
+  setTimeout(carousel, 18000)
 }
 
 /* */
