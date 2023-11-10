@@ -34,6 +34,15 @@ html {
         padding-left: 20px;
         padding-right: 20px;
     }
+    .page-content {
+        margin-top: 151px;
+    }
+    .landing-page {
+        height: calc(100vh - 151px);
+    }
+    .intro {
+        top: 20px;
+    }
 }
 
 /* Desktop mode */
@@ -47,9 +56,18 @@ html {
     .navbar-logo {
         margin-right: 30px;
     }
+    .page-content {
+        margin-top: 83.85px;
+    }
+    .landing-page {
+        height: calc(100vh - 83.85px);
+    }
+    .intro {
+        top: 40px;
+    }
 }
 
-/* When the navbar becomes too big */
+/* When the navbar becomes too big (tablet and mobile mode) */
 @media (max-width: 760px) {
     .navbar-logo {
         margin-bottom: 5px;
@@ -61,12 +79,91 @@ html {
     }
 }
 
+/* Values that only work in tablet mode */
 @media (max-width: 760px) and (min-width: 501px) {
     .navbar-logo {
         margin: auto;
     }
     .navbar-buttons {
         margin-left: calc(50% - 250px);
+    }
+    .page-content {
+        margin-top: 119px;
+    }
+    .landing-page {
+        height: calc(100vh - 119px);
+    }
+}
+
+/* Desktop intro becomes too big */
+@media (max-width: 1000px) {
+    /* .landing-page {
+        min-height: 480px;
+    } */
+
+    .intro {
+        padding: 15px;
+        max-width: 90%;
+    }
+    
+    .title {
+        margin: 1vw 1.5vh 1vw 1.5vh;
+        /* max-width: 60vw; */
+        font-size: 35px;
+        font-weight: 900;
+        letter-spacing: -0.2px;
+        word-spacing: -9px;
+    }
+    
+    .subtitle {
+        margin: 0.5vw 1vh 0.5vw 1.5vh;
+        max-width: 90vw;
+        font-size: 18px;
+    }
+    
+    .subtitle h4 {
+        margin: 0.5vw 1.5vh 0.5vw 0;
+        font-weight: lighter
+    }
+}
+
+/* Intro for desktop */
+@media (min-width: 1000px) {
+    
+    /* .landing-page {
+        min-height: 600px;
+    } */
+
+    .intro {
+        padding: 20px;
+        top: 50px;
+        max-width: 75%;
+        transform: skew(-20deg);
+    }
+    
+    .title, .subtitle {
+        transform: skew(20deg);
+        transform-origin: 0;
+    }
+    
+    .title {
+        margin: 1vw 1.5vh 1vw 1.5vh;
+        max-width: 75vw;
+        font-size: 45px;
+        font-weight: 1000;
+        letter-spacing: -0.5px;
+        word-spacing: -9px;
+    }
+    
+    .subtitle {
+        margin: 0.5vw 1vh 0.5vw 1.5vh;
+        max-width: 90vw;
+        font-size: 20px;
+    }
+    
+    .subtitle h4 {
+        margin: 0.5vw 1.5vh 0.5vw 0;
+        font-weight: lighter
     }
 }
 
@@ -149,7 +246,6 @@ a {
     flex-direction: column;
     position: relative;
     width: 100%;
-    height: calc(100vh - 83.85px);
     margin: 0 auto;
 }
 
@@ -186,53 +282,24 @@ a {
 
 .intro {
     display: flex;
+    height: max-content;
     flex-wrap: wrap;
     background-color: rgb(0, 0, 0, 0.6);
     position: absolute;
     width: min-content;
-    padding: 20px;
-    height: max-content;
-    top: calc(40vh / 4);
     text-align: center;
     justify-content: center;
-    transform: skew(-20deg);
-}
-
-.title, .subtitle {
-    transform: skew(20deg);
-    transform-origin: 0;
 }
 
 .title {
-    margin: 1vw 1.5vh 1vw 1.5vh;
     align-items: center;
-    /* top: 8vw;
-    left: 1vw; */
     width: max-content;
-    max-width: 75vw;
-    font-size: 45px;
-    font-weight: 1000;
-    letter-spacing: -0.1vw;
-    word-spacing: -9px;
 }
 
 .subtitle {
-    margin: 0.5vw 1vh 0.5vw 1.5vh;
     align-items: center;
-/*     top: 17vw;
-    left: 1vw; */
-/*     background-color: rgb(250, 6, 6); */
-   /*  padding: 1%; */
     width: max-content;
-    max-width: 90vw;
-    font-size: 20px;
 }
-
-.subtitle h4 {
-    margin: 0.5vw 1.5vh 0.5vw 0;
-    font-weight: lighter
-}
-
 
 .we-protect-animation {
     border-radius: 10px;

@@ -117,21 +117,22 @@ setInterval(typeWriter(), 8000);
 
 /* Adjust content margin, to allow for navbar resizing */
 
-document.addEventListener("DOMContentLoaded", function () {
-  // Get the navbar element
-  const navbar = document.getElementById("navbar")
+// document.addEventListener("DOMContentLoaded", function () {
+//   // Get the navbar element
+//   const navbar = document.getElementById("navbar")
 
-  // Get the content element
-  const content = document.getElementsByClassName('main-content')[0];
+//   // Get the content element
+//   const content = document.getElementsByClassName('page-content')[0];
+//   const landing_page = document.getElementById('landing-lage');
 
-  function adjust() {
-    /* Adjust the padding-top based on the navbar's height */
-    const navbarHeight = navbar.offsetHeight;
-    content.style.marginTop = navbarHeight + 'px';
-  }
+//   function adjust() {
+//     /* Adjust the padding-top based on the navbar's height */
+//     const navbarHeight = navbar.offsetHeight;
+//     content.style.marginTop = navbarHeight + 'px';
+//   }
 
-  // Call the adjust function when the page loads and on window resize
-  window.addEventListener('load', adjust);
-  window.addEventListener('resize', adjust);
-})
+//   // Call the adjust function when the page loads and on window resize
+//   window.addEventListener('load', adjust);
+//   window.addEventListener('resize', adjust);
+// })
 /* */
